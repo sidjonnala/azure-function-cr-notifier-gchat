@@ -1,0 +1,8 @@
+.git
+.gitignore
+.vscode
+local.settings.json
+node_modules
+DEPLOYMENT.md
+*.test.js
+*.spec.js
