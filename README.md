@@ -108,7 +108,7 @@ az functionapp config appsettings set \
 
 ### 4a. Install dependencies
 ```bash
-cd azure-function-google-chat-notifier
+cd azure-function-cr-notifier-gchat
 npm install
 ```
 
@@ -193,7 +193,7 @@ curl -X POST http://localhost:7071/api/notifyGoogleChat \
 ### Option A: Azure Functions Core Tools (recommended)
 
 ```bash
-cd azure-function-google-chat-notifier
+cd azure-function-cr-notifier-gchat
 npm install
 func azure functionapp publish <function-app-name> --node
 ```
@@ -203,7 +203,7 @@ That's it. Core Tools packages the project, runs `npm install --production` remo
 ### Option B: Azure CLI with ZIP deploy
 
 ```bash
-cd azure-function-google-chat-notifier
+cd azure-function-cr-notifier-gchat
 npm install --omit=dev
 zip -r function.zip . --exclude "local.settings.json" --exclude ".git/*" --exclude "DEPLOYMENT.md" --exclude "*.test.js"
 
