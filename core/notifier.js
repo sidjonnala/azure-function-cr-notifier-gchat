@@ -130,11 +130,15 @@ function getField(fields, fieldName) {
   return typeof val === 'object' ? JSON.stringify(val) : String(val);
 }
 
-/** Returns a nested string property of an ADO object field (e.g. AssignedTo.displayName). */
+/**
+ * Returns a nested string property of an ADO object field (e.g. AssignedTo.displayName).
+ * Also handles the case where ADO sends the field as a plain string "Display Name <email>",
+ * in which case the display name portion (before the angle bracket) is returned.
+ */
 function getFieldNested(fields, fieldName, nested) {
   const val = fields[fieldName];
-  if (val && typeof val === 'object' && nested in val) {
-    return String(val[nested] ?? '');
-  }
+  if (val === undefined || val === null) return '';
+  if (typeof val === 'string') return val.replace(/<[^>]*>/, '').trim();
+  if (typeof val === 'object' && nested in val) return String(val[nested] ?? '');
   return '';
 }
