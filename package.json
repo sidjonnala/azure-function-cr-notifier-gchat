@@ -1,0 +1,14 @@
+{
+  "name": "azure-function-google-chat-notifier",
+  "version": "1.0.0",
+  "description": "Azure Function that notifies a Google Chat space when a User Story is created in Azure DevOps under a specific area path.",
+  "type": "module",
+  "main": "src/functions/notifyGoogleChat.js",
+  "scripts": {
+    "start": "func start",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.7.0"
+  }
+}
